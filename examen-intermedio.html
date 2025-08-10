@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Nivel Intermedio - Orientación y Mecánica | AstroRuta OCAA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <i class="fas fa-rocket"></i>
+                        <span>AstroRuta OCAA</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="index.html#recursos" class="nav-link">Recursos</a></li>
+                    <li><a href="index.html#practica" class="nav-link">Práctica</a></li>
+                    <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html" class="breadcrumb-link">Inicio</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="index.html#practica" class="breadcrumb-link">Práctica</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Examen Nivel Intermedio</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="exam-page-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Examen Nivel Intermedio</h1>
+                <p class="page-subtitle">Orientación y Mecánica</p>
+            </div>
+
+            <!-- Exam Info -->
+            <div class="exam-info-card">
+                <div class="exam-info-header">
+                    <h2><i class="fas fa-graduation-cap"></i> Información del Examen</h2>
+                </div>
+                <div class="exam-info-content">
+                    <div class="exam-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-question-circle"></i>
+                            <span>10 preguntas</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Tiempo ilimitado</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Selección única</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Retroalimentación inmediata</span>
+                        </div>
+                    </div>
+                    <div class="exam-topics">
+                        <h3>Temas evaluados:</h3>
+                        <ul>
+                            <li>Orientación celeste (puntos cardinales, altura y azimut)</li>
+                            <li>Constelaciones de referencia</li>
+                            <li>Mecánica básica de cohetes y aerodinámica</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exam Instructions -->
+            <div class="exam-instructions">
+                <h3><i class="fas fa-info-circle"></i> Instrucciones</h3>
+                <ul>
+                    <li>Lee cada pregunta cuidadosamente</li>
+                    <li>Selecciona la respuesta que consideres correcta</li>
+                    <li>Recibirás retroalimentación inmediata después de cada respuesta</li>
+                    <li>Puedes revisar tus respuestas al final del examen</li>
+                    <li>No hay límite de tiempo, toma tu tiempo para pensar</li>
+                </ul>
+            </div>
+
+            <!-- Exam Form -->
+            <form id="examForm" class="exam-form">
+                <!-- Question 1 -->
+                <div class="question-card" id="question1">
+                    <div class="question-header">
+                        <span class="question-number">1</span>
+                        <h3>¿Qué es el azimut en orientación celeste?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="a">
+                            <span class="option-text">a) La altura de un objeto sobre el horizonte</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="b">
+                            <span class="option-text">b) El ángulo horizontal medido desde el norte hacia el este</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="c">
+                            <span class="option-text">c) La distancia de un objeto celeste a la Tierra</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="d">
+                            <span class="option-text">d) El tiempo que tarda un objeto en cruzar el meridiano</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback1"></div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-card" id="question2">
+                    <div class="question-header">
+                        <span class="question-number">2</span>
+                        <h3>¿Cuál es la constelación más fácil de identificar en el hemisferio norte?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="a">
+                            <span class="option-text">a) Orión</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="b">
+                            <span class="option-text">b) Osa Mayor</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="c">
+                            <span class="option-text">c) Casiopea</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="d">
+                            <span class="option-text">d) Leo</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback2"></div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-card" id="question3">
+                    <div class="question-header">
+                        <span class="question-number">3</span>
+                        <h3>¿Qué principio físico explica el movimiento de los cohetes en el espacio?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="a">
+                            <span class="option-text">a) La ley de gravitación universal</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="b">
+                            <span class="option-text">b) La conservación del momento lineal</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="c">
+                            <span class="option-text">c) La ley de Ohm</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="d">
+                            <span class="option-text">d) El principio de Arquímedes</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback3"></div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question-card" id="question4">
+                    <div class="question-header">
+                        <span class="question-number">4</span>
+                        <h3>¿Cuál es la altura máxima que puede alcanzar un objeto celeste desde el horizonte?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="a">
+                            <span class="option-text">a) 45 grados</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="b">
+                            <span class="option-text">b) 90 grados</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="c">
+                            <span class="option-text">c) 180 grados</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="d">
+                            <span class="option-text">d) 360 grados</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback4"></div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question-card" id="question5">
+                    <div class="question-header">
+                        <span class="question-number">5</span>
+                        <h3>¿Qué constelación se utiliza como referencia para encontrar la Estrella Polar?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="a">
+                            <span class="option-text">a) Osa Menor</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="b">
+                            <span class="option-text">b) Osa Mayor</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="c">
+                            <span class="option-text">c) Casiopea</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="d">
+                            <span class="option-text">d) Draco</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback5"></div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question-card" id="question6">
+                    <div class="question-header">
+                        <span class="question-number">6</span>
+                        <h3>¿Qué es el empuje en la mecánica de cohetes?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q6" value="a">
+                            <span class="option-text">a) La fuerza que ejerce el aire sobre el cohete</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="b">
+                            <span class="option-text">b) La fuerza que expulsa los gases del motor</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="c">
+                            <span class="option-text">c) El peso del cohete</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="d">
+                            <span class="option-text">d) La velocidad del cohete</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback6"></div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question-card" id="question7">
+                    <div class="question-header">
+                        <span class="question-number">7</span>
+                        <h3>¿En qué dirección apunta la Estrella Polar desde el hemisferio norte?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q7" value="a">
+                            <span class="option-text">a) Hacia el sur</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="b">
+                            <span class="option-text">b) Hacia el norte</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="c">
+                            <span class="option-text">c) Hacia el este</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="d">
+                            <span class="option-text">d) Hacia el oeste</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback7"></div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question-card" id="question8">
+                    <div class="question-header">
+                        <span class="question-number">8</span>
+                        <h3>¿Qué constelación tiene forma de "W" y es visible todo el año en el hemisferio norte?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q8" value="a">
+                            <span class="option-text">a) Orión</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="b">
+                            <span class="option-text">b) Casiopea</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="c">
+                            <span class="option-text">c) Osa Mayor</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="d">
+                            <span class="option-text">d) Leo</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback8"></div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question-card" id="question9">
+                    <div class="question-header">
+                        <span class="question-number">9</span>
+                        <h3>¿Qué factor aerodinámico es más importante para la estabilidad de un cohete?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q9" value="a">
+                            <span class="option-text">a) El color del cohete</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="b">
+                            <span class="option-text">b) La posición del centro de gravedad</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="c">
+                            <span class="option-text">c) El tamaño del motor</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="d">
+                            <span class="option-text">d) La velocidad del viento</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback9"></div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question-card" id="question10">
+                    <div class="question-header">
+                        <span class="question-number">10</span>
+                        <h3>¿Cuál es el valor del azimut cuando un objeto celeste está exactamente al norte?</h3>
+                    </div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q10" value="a">
+                            <span class="option-text">a) 0 grados</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="b">
+                            <span class="option-text">b) 90 grados</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="c">
+                            <span class="option-text">c) 180 grados</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="d">
+                            <span class="option-text">d) 270 grados</span>
+                        </label>
+                    </div>
+                    <div class="feedback" id="feedback10"></div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="exam-actions">
+                    <button type="submit" class="btn btn-primary" id="submitExam">
+                        <i class="fas fa-check"></i>
+                        Finalizar Examen
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="resetExam">
+                        <i class="fas fa-redo"></i>
+                        Reiniciar
+                    </button>
+                </div>
+            </form>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-card">
+                    <h2><i class="fas fa-chart-bar"></i> Resultados del Examen</h2>
+                    <div class="results-summary">
+                        <div class="score-display">
+                            <span class="score-number" id="scoreNumber">0</span>
+                            <span class="score-label">de 10</span>
+                        </div>
+                        <div class="score-percentage" id="scorePercentage">0%</div>
+                    </div>
+                    <div class="results-breakdown">
+                        <h3>Desglose de respuestas:</h3>
+                        <div class="answers-review" id="answersReview"></div>
+                    </div>
+                    <div class="results-actions">
+                        <button class="btn btn-primary" onclick="window.location.href='index.html#practica'">
+                            <i class="fas fa-tasks"></i>
+                            Volver a Práctica
+                        </button>
+                        <button class="btn btn-secondary" id="retakeExam">
+                            <i class="fas fa-redo"></i>
+                            Repetir Examen
+                        </button>
+                        <button class="btn btn-primary" onclick="window.location.href='index.html'">
+                            <i class="fas fa-home"></i>
+                            Página Principal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Botón de regreso a página principal -->
+        <div class="back-to-main">
+            <button class="btn btn-primary" onclick="window.location.href='index.html'">
+                <i class="fas fa-home"></i>
+                Regresar a Página Principal
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Évar Elena Sevilla Quesada. Derechos reservados.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="terminos.html" class="footer-link">Términos</a>
+                    <a href="privacidad.html" class="footer-link">Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="examen-intermedio.js"></script>
+</body>
+</html>

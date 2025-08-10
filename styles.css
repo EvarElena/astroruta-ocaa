@@ -83,6 +83,20 @@ body {
     animation: rocket-float 3s ease-in-out infinite;
 }
 
+.nav-logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--space-yellow);
+    transition: all 0.3s ease;
+}
+
+.nav-logo a:hover {
+    color: var(--white);
+    transform: scale(1.05);
+}
+
 @keyframes rocket-float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-5px); }
@@ -409,13 +423,158 @@ body {
     background: var(--space-blue);
 }
 
+/* Temario Content */
+.temario-content {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.temario-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--space-yellow);
+    font-weight: 600;
+}
+
+.temario-description {
+    color: var(--light-gray);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.temario-list {
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.temario-list-title {
+    color: var(--space-yellow);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.temario-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.temario-items li {
+    color: var(--light-gray);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+}
+
+.temario-items li::before {
+    content: '•';
+    color: var(--space-yellow);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.temario-items li strong {
+    color: var(--light-blue);
+    font-weight: 600;
+}
+
+.temario-button-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-temario {
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--cosmic-blue) 100%);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-temario:hover {
+    background: linear-gradient(135deg, var(--cosmic-blue) 0%, var(--light-blue) 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-temario i {
+    transition: transform 0.3s ease;
+}
+
+.btn-temario.active i {
+    transform: rotate(180deg);
+}
+
 .resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
 }
+
+.resources-grid.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.resources-grid .resource-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.resources-grid.show .resource-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.resources-grid.show .resource-card:nth-child(1) { transition-delay: 0.1s; }
+.resources-grid.show .resource-card:nth-child(2) { transition-delay: 0.2s; }
+.resources-grid.show .resource-card:nth-child(3) { transition-delay: 0.3s; }
+.resources-grid.show .resource-card:nth-child(4) { transition-delay: 0.4s; }
+
+/* Animaciones para exámenes de práctica */
+.practice-grid {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.practice-grid.show {
+    display: grid;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.practice-grid.show .practice-card {
+    animation: slideInUp 0.6s ease forwards;
+}
+
+.practice-grid.show .practice-card:nth-child(1) { animation-delay: 0.1s; }
+.practice-grid.show .practice-card:nth-child(2) { animation-delay: 0.2s; }
 
 .resource-card {
     background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
@@ -492,6 +651,74 @@ body {
 .practice-section {
     padding: var(--section-padding);
     background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+}
+
+.exam-content {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.exam-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--space-yellow);
+    font-weight: 600;
+}
+
+.exam-description {
+    color: var(--light-gray);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.exam-list {
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.exam-list-title {
+    color: var(--space-yellow);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.exam-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.exam-items li {
+    color: var(--light-gray);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+}
+
+.exam-items li::before {
+    content: '•';
+    color: var(--space-yellow);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.exam-items li strong {
+    color: var(--light-blue);
+    font-weight: 600;
+}
+
+.exam-button-container {
+    text-align: center;
+    margin-top: 2rem;
 }
 
 .practice-grid {
@@ -944,9 +1171,914 @@ body {
         font-size: 0.8rem;
         padding: 0.6rem 1rem;
     }
+    
+    /* Temario content responsivo */
+    .temario-content {
+        margin: 0 1rem 2rem;
+    }
+    
+    .temario-title {
+        font-size: 1.8rem;
+    }
+    
+    .temario-description {
+        font-size: 1rem;
+    }
+    
+    .temario-list-title {
+        font-size: 1.1rem;
+    }
+    
+    .temario-items li {
+        font-size: 0.9rem;
+    }
+    
+    .btn-temario {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
 }
 
-/* Estilos para listas de privacidad */
+/* Estilos para la página del Sistema Solar */
+.solar-system-content {
+    padding: 120px 0 80px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--space-blue) 0%, var(--deep-blue) 100%);
+}
+
+/* Sección de Motivación para Sistema Solar */
+.solar-system-content .motivation-section {
+    margin-bottom: 4rem;
+}
+
+.solar-system-content .motivation-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.solar-system-content .motivation-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    color: var(--space-blue);
+}
+
+.solar-system-content .motivation-card h2 {
+    font-size: 2rem;
+    color: var(--space-yellow);
+    margin-bottom: 1.5rem;
+}
+
+.solar-system-content .motivation-card p {
+    color: var(--light-gray);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.solar-system-content .motivation-tips {
+    text-align: left;
+    background: var(--space-blue);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.solar-system-content .motivation-tips h3 {
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.solar-system-content .motivation-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.solar-system-content .motivation-tips li {
+    color: var(--light-gray);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.solar-system-content .motivation-tips li::before {
+    content: '•';
+    color: var(--space-yellow);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.solar-system-content .motivation-tips li strong {
+    color: var(--light-blue);
+    font-weight: 600;
+}
+
+.solar-system-content .motivation-tips + .motivation-tips {
+    margin-top: 2rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.breadcrumb {
+    margin-bottom: 2rem;
+}
+
+.breadcrumb-link {
+    color: var(--light-blue);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+    color: var(--space-yellow);
+    transform: translateX(-5px);
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--light-gray);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Sección Interactiva */
+.interactive-section {
+    margin-bottom: 4rem;
+}
+
+.genially-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    background: var(--deep-blue);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.genially-container iframe {
+    width: 1200px;
+    height: 675px;
+    border: none;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Sección de Hallazgos */
+.findings-section {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 3rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+}
+
+.findings-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.findings-title {
+    font-size: 2rem;
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.findings-subtitle {
+    color: var(--light-gray);
+    font-size: 1.1rem;
+}
+
+.findings-content {
+    display: flex;
+    justify-content: center;
+}
+
+.findings-form {
+    background: var(--space-blue);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--space-yellow);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    border-radius: 10px;
+    background: var(--deep-blue);
+    color: var(--white);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--space-yellow);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.btn-clear {
+    background: transparent;
+    color: var(--light-gray);
+    border: 1px solid var(--light-gray);
+}
+
+.btn-clear:hover {
+    background: var(--light-gray);
+    color: var(--space-blue);
+}
+
+/* Navegación de recursos */
+.resources-navigation {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.resources-navigation h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.nav-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-decoration: none;
+    color: var(--white);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 150px;
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--space-yellow);
+    box-shadow: var(--shadow-medium);
+}
+
+.nav-card i {
+    font-size: 2rem;
+    color: var(--space-yellow);
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.nav-card span {
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Responsive para Sistema Solar */
+@media (max-width: 768px) {
+    .solar-system-content {
+        padding: 100px 0 60px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+    
+    .genially-container iframe {
+        width: 100%;
+        height: 400px;
+    }
+    
+    .findings-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .findings-form {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .nav-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Responsive para motivación en Sistema Solar */
+    .solar-system-content .motivation-card {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .solar-system-content .motivation-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .solar-system-content .motivation-tips {
+        padding: 1.5rem;
+    }
+}
+
+/* Estilos para la página de Cohetes Caseros */
+.rockets-content {
+    padding: 120px 0 80px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--space-blue) 0%, var(--deep-blue) 100%);
+}
+
+/* Sección de Motivación para Cohetes */
+.rockets-content .motivation-section {
+    margin-bottom: 4rem;
+}
+
+.rockets-content .motivation-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.rockets-content .motivation-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    color: var(--space-blue);
+}
+
+.rockets-content .motivation-card h2 {
+    font-size: 2rem;
+    color: var(--space-yellow);
+    margin-bottom: 1.5rem;
+}
+
+.rockets-content .motivation-card p {
+    color: var(--light-gray);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.rockets-content .motivation-tips {
+    text-align: left;
+    background: var(--space-blue);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.rockets-content .motivation-tips h3 {
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.rockets-content .motivation-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rockets-content .motivation-tips li {
+    color: var(--light-gray);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.rockets-content .motivation-tips li::before {
+    content: '•';
+    color: var(--space-yellow);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.rockets-content .motivation-tips li strong {
+    color: var(--light-blue);
+    font-weight: 600;
+}
+
+.rockets-content .motivation-tips + .motivation-tips {
+    margin-top: 2rem;
+}
+
+/* Sección de Teoría */
+.theory-section {
+    margin-bottom: 4rem;
+}
+
+.theory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.theory-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+    border-color: var(--space-yellow);
+}
+
+.theory-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--space-blue);
+}
+
+.theory-card h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.theory-card p {
+    color: var(--light-gray);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.theory-formula {
+    background: var(--space-blue);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    text-align: center;
+}
+
+.theory-formula strong {
+    display: block;
+    color: var(--space-yellow);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.theory-formula span {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.theory-tip {
+    background: var(--space-blue);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+}
+
+.theory-tip strong {
+    color: var(--light-blue);
+}
+
+/* Sección de Infografía */
+.infographic-section {
+    margin-bottom: 4rem;
+}
+
+.infographic-visual {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.infographic-image {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    background: var(--deep-blue);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.infographic-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.infographic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(11, 20, 38, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.infographic-image:hover .infographic-overlay {
+    opacity: 1;
+}
+
+.infographic-info {
+    text-align: center;
+    color: var(--white);
+}
+
+.infographic-info h3 {
+    color: var(--space-yellow);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.infographic-info p {
+    color: var(--light-gray);
+    font-size: 1rem;
+}
+
+.infographic-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.infographic-actions .btn {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.infographic-steps {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+}
+
+.infographic-steps h3 {
+    color: var(--space-yellow);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.steps-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--space-blue);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--space-yellow);
+}
+
+.step-icon {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--space-blue);
+    font-weight: bold;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.step-text {
+    color: var(--light-gray);
+    line-height: 1.5;
+}
+
+.step-text strong {
+    color: var(--light-blue);
+    font-weight: 600;
+}
+
+/* Advertencia de Seguridad */
+.safety-warning {
+    background: linear-gradient(135deg, #2d1b1b 0%, #4a2c2c 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    margin-top: 3rem;
+    box-shadow: var(--shadow-medium);
+}
+
+.safety-warning h3 {
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.safety-warning ul {
+    list-style: none;
+    padding: 0;
+}
+
+.safety-warning li {
+    color: var(--white);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.safety-warning li::before {
+    content: '⚠';
+    color: var(--space-yellow);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+}
+
+/* Sección de Experimentación */
+.experimentation-section {
+    margin-bottom: 4rem;
+}
+
+.variables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.variable-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+}
+
+.variable-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+    border-color: var(--space-yellow);
+}
+
+.variable-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: var(--space-blue);
+}
+
+.variable-card h3 {
+    color: var(--space-yellow);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.variable-card p {
+    color: var(--light-gray);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.variable-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.variable-list li {
+    color: var(--light-gray);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.variable-list li::before {
+    content: '•';
+    color: var(--space-yellow);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.variable-list li strong {
+    color: var(--light-blue);
+    font-weight: 600;
+}
+
+.variable-tip {
+    background: var(--space-blue);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.variable-tip i {
+    color: var(--space-yellow);
+    font-size: 1rem;
+}
+
+.variable-tip span {
+    color: var(--light-gray);
+    line-height: 1.4;
+}
+
+/* Responsive para Cohetes Caseros */
+@media (max-width: 768px) {
+    .rockets-content {
+        padding: 100px 0 60px;
+    }
+    
+    .rockets-content .motivation-card {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .rockets-content .motivation-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .rockets-content .motivation-tips {
+        padding: 1.5rem;
+    }
+    
+    .theory-grid,
+    .variables-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .theory-card,
+    .variable-card {
+        padding: 1.5rem;
+    }
+    
+    .infographic-image {
+        margin: 0 1rem 2rem;
+    }
+    
+
+    
+    .steps-summary {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .step-item {
+        padding: 0.8rem;
+    }
+    
+    .safety-warning {
+        padding: 1.5rem;
+        margin: 2rem 1rem 0;
+    }
+    
+
+}
 .privacy-list {
     list-style: none;
     padding: 0;
@@ -972,4 +2104,1091 @@ body {
 
 .privacy-list li:last-child {
     margin-bottom: 0;
+}
+
+/* Estilos para la página de Guía de Observación */
+.observation-content {
+    padding: 120px 0 80px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--space-blue) 0%, var(--deep-blue) 100%);
+}
+
+
+
+/* Sección de Motivación */
+.motivation-section {
+    margin-bottom: 4rem;
+}
+
+.motivation-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.motivation-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    color: var(--space-blue);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.motivation-card h2 {
+    font-size: 2rem;
+    color: var(--space-yellow);
+    margin-bottom: 1.5rem;
+}
+
+.motivation-card p {
+    color: var(--light-gray);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.motivation-tips {
+    text-align: left;
+    background: var(--space-blue);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.motivation-tips h3 {
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.motivation-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.motivation-tips li {
+    color: var(--light-gray);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.motivation-tips li::before {
+    content: '•';
+    color: var(--space-yellow);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.motivation-tips li strong {
+    color: var(--light-blue);
+    font-weight: 600;
+}
+
+.motivation-tips + .motivation-tips {
+    margin-top: 2rem;
+}
+
+/* Sección de Video */
+.video-section {
+    margin-bottom: 4rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    background: var(--deep-blue);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    display: block;
+}
+
+/* Contenedor para video vertical (YouTube Shorts) */
+.video-container-short {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    background: var(--deep-blue);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.video-container-short iframe {
+    width: 100%;
+    height: 711px; /* Aspecto 9:16 para 400px de ancho */
+    border: none;
+    display: block;
+}
+
+
+
+/* Sección de Guía */
+.guide-section {
+    margin-bottom: 4rem;
+}
+
+.guide-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.guide-title {
+    font-size: 2rem;
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.guide-subtitle {
+    color: var(--light-gray);
+    font-size: 1.1rem;
+}
+
+.guide-content {
+    display: flex;
+    justify-content: center;
+}
+
+.guide-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    max-width: 600px;
+}
+
+.guide-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.8rem;
+    color: var(--space-blue);
+}
+
+.guide-card h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.guide-card p {
+    color: var(--light-gray);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+
+
+.guide-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+
+/* Responsive para Guía de Observación */
+@media (max-width: 768px) {
+    .observation-content {
+        padding: 100px 0 60px;
+    }
+    
+    .motivation-card {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .motivation-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .video-container iframe {
+        height: 300px;
+    }
+    
+    .video-container-short {
+        max-width: 300px;
+    }
+    
+    .video-container-short iframe {
+        height: 533px; /* Aspecto 9:16 para 300px de ancho */
+    }
+    
+    .guide-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Estilos para la página de Guía de Observación */
+.guide-section {
+    margin-bottom: 4rem;
+}
+
+.guide-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.guide-title {
+    font-size: 2rem;
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.guide-subtitle {
+    color: var(--light-gray);
+    font-size: 1.1rem;
+}
+
+.guide-content {
+    display: flex;
+    justify-content: center;
+}
+
+.guide-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    max-width: 600px;
+}
+
+.guide-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.8rem;
+    color: var(--space-blue);
+}
+
+.guide-card h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.guide-card p {
+    color: var(--light-gray);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.guide-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Sección de Juego de Memoria */
+.memory-game-section {
+    margin-bottom: 4rem;
+}
+
+.memory-game-content {
+    display: flex;
+    justify-content: center;
+}
+
+.memory-game-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    max-width: 600px;
+}
+
+.memory-game-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--space-yellow) 0%, var(--cosmic-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.8rem;
+    color: var(--space-blue);
+}
+
+.memory-game-card h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.memory-game-card p {
+    color: var(--light-gray);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.memory-features {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.memory-features h4 {
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.memory-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.memory-features li {
+    color: var(--light-gray);
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.memory-features li::before {
+    content: '•';
+    color: var(--space-yellow);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.memory-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+    
+    .guide-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .guide-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .memory-game-card {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .memory-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Estilos para la página de conocimientos básicos */
+.basic-concepts-content {
+    padding: 2rem 0;
+}
+
+.basic-concepts {
+    padding: 2rem 0;
+}
+
+.concept-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.concept-card {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medium-blue) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    box-shadow: var(--shadow-medium);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: stretch;
+}
+
+.concept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.concept-image {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.concept-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.concept-card:hover .concept-image img {
+    transform: scale(1.05);
+}
+
+.concept-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.concept-title {
+    color: var(--yellow);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.concept-description {
+    color: var(--white);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.image-attribution {
+    margin-top: 3rem;
+}
+
+.attribution-card {
+    background: linear-gradient(135deg, rgba(13, 25, 48, 0.8) 0%, rgba(74, 144, 226, 0.3) 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.attribution-card h4 {
+    color: var(--yellow);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.attribution-card p {
+    color: var(--white);
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Responsive para conocimientos básicos */
+@media (max-width: 768px) {
+    .concept-grid {
+        gap: 2rem;
+    }
+    
+    .concept-card {
+        flex-direction: column;
+    }
+    
+    .concept-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .concept-content {
+        padding: 1.5rem;
+    }
+    
+    .concept-title {
+        font-size: 1.2rem;
+    }
+    
+    .exam-content {
+        padding: 0 1rem;
+    }
+    
+    .exam-title {
+        font-size: 1.8rem;
+    }
+    
+    .exam-description {
+        font-size: 1rem;
+    }
+    
+    .exam-list-title {
+        font-size: 1.1rem;
+    }
+    
+    .exam-items li {
+        font-size: 0.95rem;
+    }
+}
+
+/* Estilos para la página de examen */
+.exam-page-content {
+    padding: 2rem 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--cosmic-blue) 0%, var(--space-blue) 100%);
+}
+
+.exam-info-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.exam-info-header h2 {
+    color: var(--space-yellow);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.exam-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.stat-item i {
+    color: var(--space-yellow);
+    font-size: 1.2rem;
+}
+
+.exam-topics h3 {
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.exam-topics ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.exam-topics li {
+    color: var(--light-gray);
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    text-align: left;
+}
+
+.exam-topics li::before {
+    content: '•';
+    color: var(--space-yellow);
+    position: absolute;
+    left: 0;
+}
+
+.exam-instructions {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.exam-instructions h3 {
+    color: var(--space-yellow);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.exam-instructions ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.exam-instructions li {
+    color: var(--light-gray);
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    text-align: left;
+}
+
+.exam-instructions li::before {
+    content: '✓';
+    color: var(--space-yellow);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.exam-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.question-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.question-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.question-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.question-number {
+    background: var(--space-yellow);
+    color: var(--space-blue);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.question-header h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--space-yellow);
+}
+
+.option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--space-yellow);
+}
+
+.option-text {
+    color: var(--light-gray);
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.feedback {
+    margin-top: 1.5rem;
+    min-height: 60px;
+}
+
+.feedback-message {
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.feedback-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feedback-message.correct {
+    background: rgba(76, 175, 80, 0.2);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: #4CAF50;
+}
+
+.feedback-message.incorrect {
+    background: rgba(244, 67, 54, 0.2);
+    border: 1px solid rgba(244, 67, 54, 0.5);
+    color: #F44336;
+}
+
+.feedback-message i {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.feedback-text {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.explanation {
+    color: var(--light-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.exam-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.results-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.results-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.results-card h2 {
+    color: var(--space-yellow);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.results-summary {
+    margin-bottom: 3rem;
+}
+
+.score-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.score-number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--space-yellow);
+}
+
+.score-label {
+    font-size: 1.5rem;
+    color: var(--light-gray);
+}
+
+.score-percentage {
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.results-breakdown {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.results-breakdown h3 {
+    color: var(--space-yellow);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.answers-review {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.review-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 4px solid;
+}
+
+.review-item.correct {
+    border-left-color: #4CAF50;
+}
+
+.review-item.incorrect {
+    border-left-color: #F44336;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-header i {
+    font-size: 1.2rem;
+}
+
+.review-item.correct .review-header i {
+    color: #4CAF50;
+}
+
+.review-item.incorrect .review-header i {
+    color: #F44336;
+}
+
+.review-question {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.review-status {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+.review-details p {
+    color: var(--light-gray);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.review-details strong {
+    color: var(--white);
+}
+
+.review-explanation {
+    color: var(--space-yellow) !important;
+    font-style: italic;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.results-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.back-to-main {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.back-to-main .btn {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+}
+
+/* Notificaciones */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--space-blue);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-success {
+    border-left: 4px solid #4CAF50;
+}
+
+.notification-error {
+    border-left: 4px solid #F44336;
+}
+
+.notification-warning {
+    border-left: 4px solid #FF9800;
+}
+
+.notification-info {
+    border-left: 4px solid #2196F3;
+}
+
+/* Responsive para examen */
+@media (max-width: 768px) {
+    .exam-content {
+        padding: 1rem 0;
+    }
+    
+    .exam-info-card,
+    .exam-instructions,
+    .question-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .exam-stats {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .question-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .question-number {
+        align-self: flex-start;
+    }
+    
+    .option {
+        padding: 0.8rem;
+    }
+    
+    .exam-actions,
+    .results-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .results-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .score-number {
+        font-size: 3rem;
+    }
+    
+    .score-percentage {
+        font-size: 1.5rem;
+    }
+    
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .review-status {
+        margin-left: 0;
+    }
+    
+    .back-to-main {
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+    }
+    
+    .back-to-main .btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
 }

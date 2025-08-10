@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando el Sistema Solar - AstroRuta OCAA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>AstroRuta OCAA</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html#inicio" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#recursos" class="nav-link">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#practica" class="nav-link">Práctica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#contacto" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="solar-system-content">
+        <div class="container">
+            <!-- Header de la página -->
+            <div class="page-header">
+                <div class="breadcrumb">
+                    <a href="index.html#recursos" class="breadcrumb-link">
+                        <i class="fas fa-arrow-left"></i>
+                        Volver a Recursos
+                    </a>
+                </div>
+                <h1 class="page-title">Explorando el Sistema Solar</h1>
+                <p class="page-subtitle">Embárcate en un viaje interactivo por nuestro vecindario cósmico y descubre los secretos de los planetas, lunas y otros cuerpos celestes</p>
+            </div>
+
+            <!-- Sección de Motivación -->
+            <section class="motivation-section">
+                <div class="motivation-card">
+                    <div class="motivation-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h2>¡Explora Nuestro Vecindario Cósmico!</h2>
+                    <p>Descubre los planetas, lunas, asteroides y otros cuerpos celestes que forman nuestro Sistema Solar. Este recurso interactivo te permitirá navegar por el espacio y aprender sobre las características únicas de cada mundo.</p>
+                    <div class="motivation-tips">
+                        <h3>¿Por qué explorar el Sistema Solar?</h3>
+                        <ul>
+                            <li><strong>Conocimiento fundamental:</strong> Comprende la estructura y composición de nuestro sistema planetario</li>
+                            <li><strong>Comparación planetaria:</strong> Aprende a distinguir las características únicas de cada planeta</li>
+                            <li><strong>Preparación para la OCAA:</strong> Desarrolla habilidades de identificación y análisis astronómico</li>
+                            <li><strong>Exploración interactiva:</strong> Navega libremente por el espacio y descubre detalles fascinantes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="motivation-tips">
+                        <h3>Instrucciones para tu exploración</h3>
+                        <ul>
+                            <li><strong>1. Navega por el recurso:</strong> Usa los controles para moverte por el Sistema Solar</li>
+                            <li><strong>2. Observa con atención:</strong> Presta atención a tamaños, colores y características de cada planeta</li>
+                            <li><strong>3. Documenta tus hallazgos:</strong> Anota en el registro los datos más interesantes que encuentres</li>
+                            <li><strong>4. Compara y analiza:</strong> Identifica similitudes y diferencias entre los cuerpos celestes</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recurso Interactivo -->
+            <section class="interactive-section">
+                <div class="genially-container">
+                    <iframe 
+                        src="https://view.genially.com/688c03b00546b21eae467187/interactive-content-explorando-el-sistema-solar" 
+                        title="Explorando el Sistema Solar - Recurso Interactivo"
+                        frameborder="0" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Registro de Hallazgos -->
+            <section class="findings-section">
+                <div class="findings-header">
+                    <h2 class="findings-title">
+                        <i class="fas fa-clipboard-list"></i>
+                        Registro de Hallazgos
+                    </h2>
+                    <p class="findings-subtitle">Documenta tus descubrimientos y datos interesantes que encuentres en el recurso interactivo</p>
+                </div>
+
+                <div class="findings-content">
+                    <div class="findings-form">
+                        <div class="form-group">
+                            <label for="interesting-object">
+                                <i class="fas fa-star"></i>
+                                Objeto más interesante que encontré:
+                            </label>
+                            <textarea id="interesting-object" placeholder="Describe el objeto celeste que más te llamó la atención y por qué..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="curious-fact">
+                                <i class="fas fa-lightbulb"></i>
+                                Dato curioso que aprendí:
+                            </label>
+                            <textarea id="curious-fact" placeholder="Anota un dato sorprendente o interesante que descubriste..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="planet-favorite">
+                                <i class="fas fa-globe"></i>
+                                Mi planeta favorito es:
+                            </label>
+                            <input type="text" id="planet-favorite" placeholder="¿Cuál planeta te gustó más y por qué?">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="questions">
+                                <i class="fas fa-question-circle"></i>
+                                Preguntas que me surgieron:
+                            </label>
+                            <textarea id="questions" placeholder="Escribe las preguntas que te generó la exploración del Sistema Solar..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="saveFindings">
+                                <i class="fas fa-save"></i>
+                                Guardar Registro
+                            </button>
+                            <button class="btn btn-secondary" id="downloadTemplate">
+                                <i class="fas fa-download"></i>
+                                Descargar Plantilla
+                            </button>
+                            <button class="btn btn-clear" id="clearForm">
+                                <i class="fas fa-eraser"></i>
+                                Limpiar Formulario
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+
+            <!-- Navegación de recursos -->
+            <section class="resources-navigation">
+                <h3>Explora otros recursos</h3>
+                <div class="nav-cards">
+                    <a href="conocimientos-basicos.html" class="nav-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Conocimientos Básicos</span>
+                    </a>
+                    <a href="guia-observacion.html" class="nav-card">
+                        <i class="fas fa-search"></i>
+                        <span>Guía de Observación</span>
+                    </a>
+                    <a href="cohetes-caseros.html" class="nav-card">
+                        <i class="fas fa-rocket"></i>
+                        <span>Cohetes Caseros</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Évar Elena Sevilla Quesada. Derechos reservados.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="terminos.html" class="footer-link">Términos</a>
+                    <a href="privacidad.html" class="footer-link">Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

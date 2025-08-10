@@ -248,14 +248,28 @@ function showNotification(message, type = 'info') {
 // Agregar funcionalidad a los botones de práctica
 document.querySelectorAll('.btn-practice').forEach(button => {
     button.addEventListener('click', (e) => {
+        // Permitir navegación al examen inicial e intermedio
+        if (button.getAttribute('href') === 'examen-inicial.html' || 
+            button.getAttribute('href') === 'examen-intermedio.html') {
+            return; // No prevenir la navegación
+        }
+        
         e.preventDefault();
         showNotification('¡Práctica en desarrollo! Pronto estará disponible.', 'info');
     });
 });
 
-// Agregar funcionalidad a los enlaces de recursos
+// Agregar funcionalidad a los enlaces de recursos (excepto Sistema Solar y Guía de Observación)
 document.querySelectorAll('.resource-link').forEach(link => {
     link.addEventListener('click', (e) => {
+        // Permitir navegación al Sistema Solar, Guía de Observación, Cohetes Caseros y Conocimientos Básicos
+        if (link.getAttribute('href') === 'sistema-solar.html' || 
+            link.getAttribute('href') === 'guia-observacion.html' ||
+            link.getAttribute('href') === 'cohetes-caseros.html' ||
+            link.getAttribute('href') === 'conocimientos-basicos.html') {
+            return; // No prevenir la navegación
+        }
+        
         e.preventDefault();
         showNotification('Recurso en desarrollo. ¡Pronto estará disponible!', 'info');
     });
@@ -280,3 +294,177 @@ window.addEventListener('scroll', () => {
 
 // Agregar transición al header
 document.querySelector('.header').style.transition = 'transform 0.3s ease';
+
+    // Funcionalidad para mostrar/ocultar recursos del temario
+    document.addEventListener('DOMContentLoaded', () => {
+        const showResourcesBtn = document.getElementById('showResources');
+        const resourcesGrid = document.getElementById('resourcesGrid');
+        
+        if (showResourcesBtn && resourcesGrid) {
+            showResourcesBtn.addEventListener('click', () => {
+                const isVisible = resourcesGrid.style.display !== 'none';
+                
+                if (isVisible) {
+                    // Ocultar recursos
+                    resourcesGrid.classList.remove('show');
+                    setTimeout(() => {
+                        resourcesGrid.style.display = 'none';
+                    }, 600);
+                    showResourcesBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Ver Recursos del Temario';
+                    showResourcesBtn.classList.remove('active');
+                } else {
+                    // Mostrar recursos
+                    resourcesGrid.style.display = 'grid';
+                    setTimeout(() => {
+                        resourcesGrid.classList.add('show');
+                    }, 50);
+                    showResourcesBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Ocultar Recursos';
+                    showResourcesBtn.classList.add('active');
+                }
+            });
+        }
+        
+        // Funcionalidad para mostrar/ocultar exámenes de práctica
+        const showExamsBtn = document.getElementById('showExams');
+        const examsGrid = document.getElementById('examsGrid');
+        
+        if (showExamsBtn && examsGrid) {
+            showExamsBtn.addEventListener('click', () => {
+                const isVisible = examsGrid.style.display !== 'none';
+                
+                if (isVisible) {
+                    // Ocultar exámenes
+                    examsGrid.classList.remove('show');
+                    setTimeout(() => {
+                        examsGrid.style.display = 'none';
+                    }, 600);
+                    showExamsBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Ver Exámenes de Práctica';
+                    showExamsBtn.classList.remove('active');
+                } else {
+                    // Mostrar exámenes
+                    examsGrid.style.display = 'grid';
+                    setTimeout(() => {
+                        examsGrid.classList.add('show');
+                    }, 50);
+                    showExamsBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Ocultar Exámenes de Práctica';
+                    showExamsBtn.classList.add('active');
+                }
+            });
+        }
+    
+    // Funcionalidad para la página del Sistema Solar
+    const saveFindingsBtn = document.getElementById('saveFindings');
+    const downloadTemplateBtn = document.getElementById('downloadTemplate');
+    const clearFormBtn = document.getElementById('clearForm');
+    
+    if (saveFindingsBtn) {
+        saveFindingsBtn.addEventListener('click', () => {
+            const findings = {
+                interestingObject: document.getElementById('interesting-object')?.value || '',
+                curiousFact: document.getElementById('curious-fact')?.value || '',
+                planetFavorite: document.getElementById('planet-favorite')?.value || '',
+                questions: document.getElementById('questions')?.value || ''
+            };
+            
+            // Guardar en localStorage
+            localStorage.setItem('solarSystemFindings', JSON.stringify(findings));
+            
+            // Mostrar notificación
+            showNotification('¡Registro guardado exitosamente!', 'success');
+        });
+    }
+    
+    if (downloadTemplateBtn) {
+        downloadTemplateBtn.addEventListener('click', () => {
+            const template = `
+Registro de Hallazgos - Sistema Solar
+Fecha: ${new Date().toLocaleDateString()}
+
+1. Objeto más interesante que encontré:
+_________________________________
+
+2. Dato curioso que aprendí:
+_________________________________
+
+3. Mi planeta favorito es:
+_________________________________
+
+4. Preguntas que me surgieron:
+_________________________________
+
+Consejos para la exploración:
+• Observa con atención los detalles de cada planeta
+• Compara tamaños, colores y características
+• Presta atención a las lunas y anillos
+• Investiga sobre las misiones espaciales
+• Anota cualquier dato que te sorprenda
+            `;
+            
+            const blob = new Blob([template], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'registro-sistema-solar.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showNotification('Plantilla descargada exitosamente', 'info');
+        });
+    }
+    
+    if (clearFormBtn) {
+        clearFormBtn.addEventListener('click', () => {
+            const inputs = document.querySelectorAll('#interesting-object, #curious-fact, #planet-favorite, #questions');
+            inputs.forEach(input => {
+                input.value = '';
+            });
+            
+            showNotification('Formulario limpiado', 'info');
+        });
+    }
+    
+    // Cargar datos guardados al cargar la página
+    const savedFindings = localStorage.getItem('solarSystemFindings');
+    if (savedFindings) {
+        const findings = JSON.parse(savedFindings);
+        if (document.getElementById('interesting-object')) {
+            document.getElementById('interesting-object').value = findings.interestingObject || '';
+            document.getElementById('curious-fact').value = findings.curiousFact || '';
+            document.getElementById('planet-favorite').value = findings.planetFavorite || '';
+            document.getElementById('questions').value = findings.questions || '';
+        }
+    }
+    
+    // Funcionalidad para la página de Guía de Observación
+    const previewGuideBtn = document.getElementById('previewGuide');
+    
+    if (previewGuideBtn) {
+        previewGuideBtn.addEventListener('click', () => {
+            // Abrir el PDF en una nueva pestaña para vista previa y descarga
+            window.open('Guia/GuiaObservación.pdf', '_blank');
+            showNotification('PDF abierto en nueva pestaña. Puedes descargarlo desde el navegador.', 'success');
+        });
+    }
+    
+    // Funcionalidad para el Juego de Memoria
+    const previewMemoryBtn = document.getElementById('previewMemory');
+    
+    if (previewMemoryBtn) {
+        previewMemoryBtn.addEventListener('click', () => {
+            // Abrir el PDF del juego de memoria en una nueva pestaña para vista previa y descarga
+            window.open('Guia/JuegoMemoria.pdf', '_blank');
+            showNotification('Juego de memoria abierto en nueva pestaña. Puedes descargarlo desde el navegador.', 'success');
+        });
+    }
+    
+    // Funcionalidad para la página de Cohetes Caseros
+    const infographicImage = document.querySelector('.infographic-image');
+    
+    if (infographicImage) {
+        infographicImage.addEventListener('click', () => {
+            showNotification('Infografía en desarrollo. Pronto estará disponible para visualización completa.', 'info');
+        });
+    }
+});

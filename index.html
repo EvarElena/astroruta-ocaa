@@ -105,22 +105,42 @@
                 <h2 class="section-title">Recursos Didácticos</h2>
                 <p class="section-subtitle">Material educativo específico para la preparación de la OCAA</p>
             </div>
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-list"></i>
-                    </div>
-                    <h3>Temario OCAA</h3>
-                    <p>Conoce el equipo organizador y los participantes de la Olimpiada Costarricense de Astronomía y Aeronáutica.</p>
-                    <a href="#" class="resource-link">Explorar <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="temario-content">
+                <h3 class="temario-title">Temario OCAA</h3>
+                <p class="temario-description">
+                    Prepárese con un recorrido estructurado por los temas esenciales que le ayudarán a destacar en la Olimpiada Costarricense de Astronomía y Astronáutica.
+                </p>
+                <p class="temario-description">
+                    Cada apartado ofrece explicaciones claras, ejemplos visuales y recursos prácticos para que pueda aprender a su ritmo.
+                </p>
+                
+                <div class="temario-list">
+                    <p class="temario-list-title">En este temario encontrará:</p>
+                    <ul class="temario-items">
+                        <li><strong>Conocimientos básicos:</strong> ideas y definiciones fundamentales para comprender el resto del contenido.</li>
+                        <li><strong>Explorando el Sistema Solar:</strong> recurso interactivo para ubicar y conocer los cuerpos más importantes.</li>
+                        <li><strong>Guía de Observación del Cielo:</strong> material en PDF y video para aprender a orientarse y reconocer constelaciones.</li>
+                        <li><strong>Creación de cohetes caseros:</strong> infografía paso a paso para experimentar la física de los cohetes desde casa.</li>
+                    </ul>
                 </div>
+                
+                <div class="temario-button-container">
+                    <button class="btn btn-temario" id="showResources">
+                        <i class="fas fa-chevron-down"></i>
+                        Ver Recursos del Temario
+                    </button>
+                </div>
+            </div>
+            
+            <div class="resources-grid" id="resourcesGrid" style="display: none;">
                 <div class="resource-card">
                     <div class="resource-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3>Conceptos Previos</h3>
+                    <h3>Conocimientos Básicos</h3>
                     <p>Fundamentos básicos y conceptos esenciales para comprender la astronomía y la aeronáutica.</p>
-                    <a href="#" class="resource-link">Explorar <i class="fas fa-arrow-right"></i></a>
+                    <a href="conocimientos-basicos.html" class="resource-link">Explorar <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -128,7 +148,7 @@
                     </div>
                     <h3>Sistema Solar</h3>
                     <p>Conoce los planetas, lunas y otros cuerpos celestes de nuestro sistema solar.</p>
-                    <a href="#" class="resource-link">Explorar <i class="fas fa-arrow-right"></i></a>
+                    <a href="sistema-solar.html" class="resource-link">Explorar <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -136,7 +156,7 @@
                     </div>
                     <h3>Guía de Observación del Cielo</h3>
                     <p>Técnicas y herramientas para la observación astronómica y el estudio del firmamento.</p>
-                    <a href="#" class="resource-link">Explorar <i class="fas fa-arrow-right"></i></a>
+                    <a href="guia-observacion.html" class="resource-link">Explorar <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -144,7 +164,7 @@
                     </div>
                     <h3>Creación de Cohetes Caseros</h3>
                     <p>Guías prácticas para construir cohetes experimentales y aprender sobre propulsión.</p>
-                    <a href="#" class="resource-link">Explorar <i class="fas fa-arrow-right"></i></a>
+                    <a href="cohetes-caseros.html" class="resource-link">Explorar <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -153,40 +173,57 @@
     <!-- Sección Práctica -->
     <section id="practica" class="practice-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Exámenes de Práctica</h2>
-                <p class="section-subtitle">Pon a prueba tus conocimientos con nuestros exámenes interactivos</p>
+                            <div class="section-header">
+                    <h2 class="section-title">Recursos para Practicar</h2>
+                    <p class="section-subtitle">Pon a prueba tus conocimientos con nuestros exámenes interactivos</p>
+                </div>
+            
+            <!-- Descripción de exámenes -->
+            <div class="exam-content">
+                <h3 class="exam-title">Exámenes de Selección Única</h3>
+                <p class="exam-description">
+                    Te presentamos dos exámenes diseñados para evaluar tu comprensión de los conceptos fundamentales de astronomía y aeronáutica.
+                </p>
+                <p class="exam-description">
+                    Cada examen incluye preguntas de selección única que te ayudarán a identificar áreas de fortaleza y oportunidades de mejora.
+                </p>
+                
+                <div class="exam-list">
+                    <p class="exam-list-title">En estos exámenes encontrarás:</p>
+                    <ul class="exam-items">
+                        <li><strong>Examen Nivel Inicial:</strong> 10 preguntas sobre magnitudes y unidades astronómicas, medición de ángulos (grados, minutos y segundos de arco), y Sistema Solar básico (planetas, satélites, asteroides).</li>
+                        <li><strong>Examen Nivel Intermedio:</strong> 10 preguntas sobre orientación celeste (puntos cardinales, altura y azimut), constelaciones de referencia, y mecánica básica de cohetes y aerodinámica.</li>
+                    </ul>
+                </div>
+                
+                <div class="exam-button-container">
+                    <button class="btn btn-temario" id="showExams">
+                        <i class="fas fa-chevron-down"></i>
+                        Ver Exámenes de Práctica
+                    </button>
+                </div>
             </div>
-            <div class="practice-grid">
+            
+            <div class="practice-grid" id="examsGrid" style="display: none;">
                 <div class="practice-card">
-                    <div class="practice-level">Nivel Básico</div>
+                    <div class="practice-level">Nivel Inicial</div>
                     <h3>Fundamentos de Astronomía</h3>
-                    <p>Conceptos básicos y terminología astronómica fundamental.</p>
+                    <p>Magnitudes, unidades astronómicas, medición de ángulos y Sistema Solar básico.</p>
                     <div class="practice-stats">
-                        <span><i class="fas fa-users"></i> 150+ estudiantes</span>
-                        <span><i class="fas fa-clock"></i> 30 min</span>
+                        <span><i class="fas fa-question-circle"></i> 10 preguntas</span>
+                        <span><i class="fas fa-clock"></i> 20 min</span>
                     </div>
-                    <a href="#" class="btn btn-practice">Comenzar Práctica</a>
+                    <a href="examen-inicial.html" class="btn btn-practice">Comenzar Examen</a>
                 </div>
                 <div class="practice-card">
                     <div class="practice-level">Nivel Intermedio</div>
-                    <h3>Sistema Solar Avanzado</h3>
-                    <p>Análisis detallado de planetas, lunas y fenómenos solares.</p>
+                    <h3>Orientación y Mecánica</h3>
+                    <p>Orientación celeste, constelaciones de referencia y mecánica de cohetes.</p>
                     <div class="practice-stats">
-                        <span><i class="fas fa-users"></i> 89 estudiantes</span>
-                        <span><i class="fas fa-clock"></i> 45 min</span>
+                        <span><i class="fas fa-question-circle"></i> 10 preguntas</span>
+                        <span><i class="fas fa-clock"></i> 25 min</span>
                     </div>
-                    <a href="#" class="btn btn-practice">Comenzar Práctica</a>
-                </div>
-                <div class="practice-card">
-                    <div class="practice-level">Nivel Avanzado</div>
-                    <h3>Astrofísica y Cosmología</h3>
-                    <p>Conceptos avanzados de física aplicada al universo.</p>
-                    <div class="practice-stats">
-                        <span><i class="fas fa-users"></i> 67 estudiantes</span>
-                        <span><i class="fas fa-clock"></i> 60 min</span>
-                    </div>
-                    <a href="#" class="btn btn-practice">Comenzar Práctica</a>
+                    <a href="examen-intermedio.html" class="btn btn-practice">Comenzar Examen</a>
                 </div>
             </div>
         </div>
