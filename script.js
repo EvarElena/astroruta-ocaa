@@ -443,7 +443,7 @@ Consejos para la exploración:
     if (previewGuideBtn) {
         previewGuideBtn.addEventListener('click', () => {
             // Abrir el PDF en una nueva pestaña para vista previa y descarga
-            window.open('Guia/GuiaObservación.pdf', '_blank');
+            window.open('Guia/GuiaObservacion.pdf', '_blank');
             showNotification('PDF abierto en nueva pestaña. Puedes descargarlo desde el navegador.', 'success');
         });
     }
